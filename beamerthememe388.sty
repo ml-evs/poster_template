@@ -1,4 +1,5 @@
 % this style was created by Horea Christian and is basted on the ETH Zürich corporate design color palette https://www.ethz.ch/services/en/service/communication/corporate-design/colour.html
+% then modified by Matthew Evans and hosted at www.github.com/ml-evs/poster_template
 \ProvidesPackage{beamerthememe388}
 
 % \usepackage{graphics}
@@ -22,6 +23,8 @@
 \definecolor{darkgrey}{rgb}{0.2, 0.2, 0.2}
 \definecolor{campurp}{RGB}{63,42,86}
 \definecolor{tlg}{RGB}{230,230,230}
+\definecolor{Dark2green}{HTML}{1B9E77}
+\definecolor{Dark2orange}{HTML}{D95F02}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %It seems many of the following entries do not control any visible Behaviour. All such entries are
@@ -29,7 +32,7 @@
 
 \setbeamercolor{headline}{fg=black,bg=camblue}
 \setbeamercolor{footline}{fg=black, bg=camblue}
-\setbeamerfont{footline}{size=\Large}
+\setbeamerfont{footline}{size=\large}
 
 \setbeamercolor{separation line}{bg=black}
 \setbeamercolor{title in headline}{fg=white}
@@ -45,7 +48,7 @@
 \setbeamercolor*{block title}{fg=white,bg=campurp}
 \setbeamercolor*{abstract title}{fg=white,bg=campurp}
 \setbeamercolor*{abstract body}{fg=white,bg=darkgrey}
-\setbeamerfont*{abstract body}{size=\Large}
+\setbeamerfont*{abstract body}{size=\large}
 
 \setbeamercolor{upper separation line head}{fg=red}
 
@@ -56,7 +59,7 @@
 \setbeamercolor{alerted text}{fg=red}
 \setbeamercolor{structure}{fg=camblue}
 
-\setbeamertemplate{itemize items}{\color{darkblue}$\blacktriangleright$}
+\setbeamertemplate{itemize items}{\color{camblue}$\blacktriangleright$}
 \setbeamertemplate{navigation symbols}{}  % no navigation on a poster
 
 \newenvironment<>{myblock}[1]{%
@@ -83,7 +86,7 @@
 	\setlength{\mylength}{\textwidth}%
 	\vskip2ex
 	\begin{beamercolorbox}[ht=3.2ex,dp=2ex, wd=\mylength, center,rounded=false,shadow=false,leftskip=1cm,colsep*=0ex]{block title}%
-      \usebeamerfont*{block title}\centering\Large{\insertblocktitle}
+      \usebeamerfont*{block title}\centering\titlefont\Large{\insertblocktitle}
 	\end{beamercolorbox}\vskip-9pt%
 	{\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5ex}}%
 	\usebeamerfont{block body}%
@@ -102,11 +105,11 @@
 	\setlength{\mylength}{\textwidth}%
 	\vskip2ex
 	\begin{beamercolorbox}[ht=0ex,dp=2ex, wd=\mylength, center,rounded=false,shadow=false,leftskip=1cm,colsep*=0ex]{abstract body}%
-      \usebeamerfont*{abstract body}{\insertblocktitle}
+      \usebeamerfont*{abstract body}{}
 	\end{beamercolorbox}\vskip-9pt%
 	{\ifbeamercolorempty[bg]{abstract body}{}{\nointerlineskip\vskip-0.5ex}}%
 	\usebeamerfont{abstract body}%
-	\begin{beamercolorbox}[rounded=false,shadow=false,center,wd=\textwidth,]{abstract body}%
+	\begin{beamercolorbox}[rounded=false,shadow=false,center,wd=\textwidth]{abstract body}%
 		\ifbeamercolorempty[bg]{abstract body}\vbox{}%
 		\begin{minipage}{0.96\textwidth}\vbox{}%
 		\justify
@@ -121,32 +124,39 @@
 \setbeamertemplate{headline}{
 	\leavevmode
 	\begin{beamercolorbox}[wd=\paperwidth]{headline}
-		\vspace{6ex}\\
+    \vspace{6ex}\\
 		\begin{columns}[c]
-			\begin{column}{.0825\paperwidth}
+			%\begin{column}{.03\paperwidth}
+			%\end{column}
+			\begin{column}{.1\paperwidth}
+				\begin{center}
+            \includegraphics[width=\textwidth, keepaspectratio]{img/me388.png}
+				\end{center}
 			\end{column}
-			\begin{column}{.70\paperwidth}
+			\begin{column}{.63\paperwidth}
 				\raggedleft
-				\usebeamercolor{title in headline}{\\[2ex]\color{fg}\textbf{\huge{\inserttitle}}\\[2ex]}
+				\usebeamercolor{title in headline}{\\[2ex]\color{fg}\textbf{\huge{\inserttitle}}\\[3ex]}
 				\usebeamercolor{author in headline}{\color{fg}\Large{\insertauthor}\\[1ex]}
 				\usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}}
 			\end{column}
 			\begin{column}{.25\paperwidth}
 				\begin{center}
 					\includegraphics[width=.8\textwidth, height=.39\textwidth, keepaspectratio]{img/logo}\\
-					\includegraphics[width=.8\textwidth, height=.39\textwidth, keepaspectratio]{img/logo2.png}
+					\includegraphics[width=.8\textwidth, height=.39\textwidth, keepaspectratio]{img/logo2}
 				\end{center}
+    \vspace{5ex}\\
 			\end{column}
-			\begin{column}{.03\paperwidth}
+			\begin{column}{.02\paperwidth}
+    \vspace{5ex}\\
 			\end{column}
 		\end{columns}
-		\vspace{2ex}\\
+    %\vspace{5ex}\\
 	\end{beamercolorbox}
 
  	\begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
 		\rule{0pt}{4pt}
 	\end{beamercolorbox}
-	%\vskip-1cm
+  \vskip1cm
 	}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -156,12 +166,12 @@
 	\end{beamercolorbox}
 	\leavevmode%
 	\begin{beamercolorbox}[ht=3.2ex,leftskip=1cm,rightskip=1cm]{author in head/foot}%
-      \large{\href{https://www.tcm.phy.cam.ac.uk/~me388}{{\texttt{www.tcm.phy.cam.ac.uk/\textasciitilde me388}}}}
+      $^\dagger$ \texttt{me388@cam.ac.uk}
     \hfill
-		\today
-		\hfill
-    Supervisor: Dr Andrew Morris
-		\vskip1ex
+      \href{https://www.tcm.phy.cam.ac.uk/~ajm255}{{\texttt{www.tcm.phy.cam.ac.uk/\textasciitilde ajm255}}} 
+    \hfill
+\today
+    \vskip0.5ex
 	\end{beamercolorbox}
 	\vskip0pt%
 	\begin{beamercolorbox}[wd=\paperwidth]{lower separation line foot}
