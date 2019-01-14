@@ -14,6 +14,14 @@
 
 \mode<presentation>
 
+\def\@authorurl{None}
+\newcommand{\setauthorurl}[1]{\def\@authorurl{#1}}
+% email
+\def\@authoremail{None}
+\newcommand{\setauthoremail}[1]{\def\@authoremail{#1}}
+\def\@logo{None}
+\newcommand{\setlogo}[1]{\def\@logo{#1}}
+
 \definecolor{camblue}{RGB}{21,103,114}
 \definecolor{brightblue}{rgb}{0.0,0.45,0.81}
 \definecolor{lightblue}{rgb}{0.415, 0.678,0.894}
@@ -71,12 +79,12 @@
 	\end{actionenv}}
 
   \newenvironment<>{myabstract}[1]{%
-	\begin{actionenv}#2%
-	%\def\insertblocktitle{\centering#1}%
-	\par%
+  \begin{actionenv}#2%
+  %\def\insertblocktitle{\centering#1}%
+  \par%
   \usebeamertemplate{abstract begin}\leftskip=14pt\rightskip=14pt\vspace{10pt}}
-	{\par\vspace{1em}\usebeamertemplate{abstract end}
-	\end{actionenv}}
+  {\par\vspace{1em}\usebeamertemplate{abstract end}
+  \end{actionenv}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -86,7 +94,7 @@
 	\setlength{\mylength}{\textwidth}%
 	\vskip2ex
 	\begin{beamercolorbox}[ht=3.2ex,dp=2ex, wd=\mylength, center,rounded=false,shadow=false,leftskip=1cm,colsep*=0ex]{block title}%
-      \usebeamerfont*{block title}\centering\titlefont\Large{\insertblocktitle}
+      \usebeamerfont*{block title}\centering\Large{\insertblocktitle}
 	\end{beamercolorbox}\vskip-9pt%
 	{\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5ex}}%
 	\usebeamerfont{block body}%
@@ -102,22 +110,22 @@
 
   
 \setbeamertemplate{abstract begin}{
-	\setlength{\mylength}{\textwidth}%
-	\vskip2ex
-	\begin{beamercolorbox}[ht=0ex,dp=2ex, wd=\mylength, center,rounded=false,shadow=false,leftskip=1cm,colsep*=0ex]{abstract body}%
+  \setlength{\mylength}{\textwidth}%
+  \vskip2ex
+  \begin{beamercolorbox}[ht=0ex,dp=2ex, wd=\mylength, center,rounded=false,shadow=false,leftskip=1cm,colsep*=0ex]{abstract body}%
       \usebeamerfont*{abstract body}{}
-	\end{beamercolorbox}\vskip-9pt%
-	{\ifbeamercolorempty[bg]{abstract body}{}{\nointerlineskip\vskip-0.5ex}}%
-	\usebeamerfont{abstract body}%
-	\begin{beamercolorbox}[rounded=false,shadow=false,center,wd=\textwidth]{abstract body}%
-		\ifbeamercolorempty[bg]{abstract body}\vbox{}%
-		\begin{minipage}{0.96\textwidth}\vbox{}%
-		\justify
-		}
+  \end{beamercolorbox}\vskip-9pt%
+  {\ifbeamercolorempty[bg]{abstract body}{}{\nointerlineskip\vskip-0.5ex}}%
+  \usebeamerfont{abstract body}%
+  \begin{beamercolorbox}[rounded=false,shadow=false,center,wd=\textwidth]{abstract body}%
+    \ifbeamercolorempty[bg]{abstract body}\vbox{}%
+    \begin{minipage}{0.96\textwidth}\vbox{}%
+    \justify
+    }
 \setbeamertemplate{abstract end}{
-	\end{minipage}
-	\end{beamercolorbox}
-	}
+  \end{minipage}
+  \end{beamercolorbox}
+  }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -128,29 +136,21 @@
 		\begin{columns}[c]
 			%\begin{column}{.03\paperwidth}
 			%\end{column}
-			\begin{column}{.1\paperwidth}
-				\begin{center}
-            \includegraphics[width=\textwidth, keepaspectratio]{img/me388.png}
-				\end{center}
-			\end{column}
 			\begin{column}{.63\paperwidth}
 				\raggedleft
 				\usebeamercolor{title in headline}{\\[2ex]\color{fg}\textbf{\huge{\inserttitle}}\\[3ex]}
 				\usebeamercolor{author in headline}{\color{fg}\Large{\insertauthor}\\[1ex]}
 				\usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}}
 			\end{column}
-			\begin{column}{.25\paperwidth}
-				\begin{center}
-					\includegraphics[width=.8\textwidth, height=.39\textwidth, keepaspectratio]{img/logo}\\
-					\includegraphics[width=.8\textwidth, height=.39\textwidth, keepaspectratio]{img/logo2}
-				\end{center}
-    \vspace{5ex}\\
+      \begin{column}{.25\paperwidth}
+        \begin{center}
+            \includegraphics[width=.8\textwidth, height=.8\textwidth, keepaspectratio]{\@logo}
+        \end{center}
 			\end{column}
 			\begin{column}{.02\paperwidth}
-    \vspace{5ex}\\
+        \vspace{5ex}\\
 			\end{column}
 		\end{columns}
-    %\vspace{5ex}\\
 	\end{beamercolorbox}
 
  	\begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
@@ -159,6 +159,7 @@
   \vskip1cm
 	}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setbeamertemplate{footline}{
 	\begin{beamercolorbox}[wd=\paperwidth]{upper separation line foot}
@@ -166,9 +167,9 @@
 	\end{beamercolorbox}
 	\leavevmode%
 	\begin{beamercolorbox}[ht=3.2ex,leftskip=1cm,rightskip=1cm]{author in head/foot}%
-      $^\dagger$ \texttt{me388@cam.ac.uk}
+      $^\dagger$ \texttt{\@authoremail}
     \hfill
-      \href{https://www.tcm.phy.cam.ac.uk/~ajm255}{{\texttt{www.tcm.phy.cam.ac.uk/\textasciitilde ajm255}}} 
+    \texttt{\@authorurl}
     \hfill
 \today
     \vskip0.5ex
